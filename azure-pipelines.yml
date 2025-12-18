@@ -15,17 +15,17 @@ stages:
     steps:
     - task: TerraformInstaller@1
       inputs:
-        terraformVersion: '1.6.6'
+        terraformVersion: 'latest'
 
+    
     - task: TerraformTask@5
       inputs:
         provider: 'azurerm'
         command: 'init'
-        workingDirectory: '$(System.DefaultWorkingDirectory)/Environment/Dev'
+        workingDirectory: '$(System.DefaultWorkingDirectory)/Envoirnment/Dev'
         backendServiceArm: 'maneeshNewSPDEC25'
         backendAzureRmResourceGroupName: 'maneesh22'
         backendAzureRmStorageAccountName: 'maneeshstorage01'
         backendAzureRmContainerName: 'maneeshcontainer'
         backendAzureRmKey: 'maneesh.tfstate'
-
 
