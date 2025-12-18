@@ -58,7 +58,25 @@ stages:
         command: 'validate'
         workingDirectory: '$(System.DefaultWorkingDirectory)/Envoirnment/Dev'
 
+# scanning
 
-
-
-
+- stage: stage2
+  displayName: security_scanning
+  jobs:
+    - job: terraform_scanning
+      displayName: scanning
+      steps:
+        - task: tfsec@1
+          displayName: tfsec_scanning
+          inputs:
+            version: 'v1.26.0'
+            workingDirectory: '$(System.DefaultWorkingDirectory)'
+      
+        - task: AzurePowerShell@5
+          displayName: tflint_scanning
+          inputs:
+            ScriptType: 'InlineScript'
+            Inline: |
+              tflint --init
+              tflint
+            workingDirectory: '$(System.DefaultWorkingDirectory)'
