@@ -1,17 +1,30 @@
 trigger:
- branches:
-   include:
-     - main
+  branches:
+    include:
+      - main
 
-pool:maneesh3456
+pool:
+  name: maneesh3456
 
 stages:
-  - stage: stage1
-    displayName:  install_init_fmt_validate  
-    jobs:
-      - job: terraforminstall_terrraforminit
-        displayName: terraform_install_init
-        steps:
-         - task: TerraformInstaller@1
-           inputs:
-             terraformVersion: 'latest'
+- stage: stage1
+  displayName: install_init_fmt_validate
+  jobs:
+  - job: terraform_install_init
+    displayName: terraform_install_init
+    steps:
+    - task: TerraformInstaller@1
+      inputs:
+        terraformVersion: 'latest'
+
+    - task: TerraformTask@5
+      inputs:
+        provider: 'azurerm'
+        command: 'init'
+        workingDirectory: '$(System.DefaultWorkingDirectory)/Environment/Dev'
+        backendServiceArm: 'maneeshNewSPDEC25'
+        backendAzureRmResourceGroupName: 'maneesh22'
+        backendAzureRmStorageAccountName: 'maneeshstorage01'
+        backendAzureRmContainerName: 'maneeshcontainer'
+        backendAzureRmKey: 'maneesh.tfstate'
+
