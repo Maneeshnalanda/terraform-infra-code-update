@@ -13,9 +13,9 @@ stages:
   - job: terraform_install_init
     displayName: terraform_install_init
     steps:
-    # - task: TerraformInstaller@1
-    #   inputs:
-    #     terraformVersion: 'latest'
+    - task: TerraformInstaller@1
+      inputs:
+        terraformVersion: '1.6.6'
 
     - task: TerraformTask@5
       inputs:
@@ -27,4 +27,5 @@ stages:
         backendAzureRmStorageAccountName: 'maneeshstorage01'
         backendAzureRmContainerName: 'maneeshcontainer'
         backendAzureRmKey: 'maneesh.tfstate'
+
 
