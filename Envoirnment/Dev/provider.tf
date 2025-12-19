@@ -5,13 +5,10 @@ terraform {
       version = "4.56.0"
     }
   }
-  # backend "azurerm" {
-  #   # resource_group_name  = "maneesh22"
-  #   # storage_account_name = "maneeshstorage01"
-  #   # container_name       = "maneeshcontainer"
-  #   # key                  = "maneesh.tfstate"
+   backend "azurerm" {
+                 
 
-  # }
+   }
 }
 
 provider "azurerm" {
