@@ -81,7 +81,7 @@ stages:
               tflint
             workingDirectory: '$(System.DefaultWorkingDirectory)'
  
-#  terraform init&plan
+#  terraform plan
  
 - stage: stage3
   displayName: terraform_plan
@@ -118,6 +118,36 @@ stages:
 #       inputs:
 #         notifyUsers: 'maneeshku2022@gmail.com'
 #         approvers: 'maneeshku2022@gmail.com'
+
+#  terraform Apply
+
+# - stage: state5
+#   displayName: terraformApply
+#   jobs:
+#     - job: terraform_Apply
+#       displayName: terraformApply
+#       steps:
+#       - task: TerraformTask@5
+#         displayName: terraform init
+#         inputs:
+#           provider: 'azurerm'
+#           command: 'init'
+#           workingDirectory: '$(System.DefaultWorkingDirectory)/Envoirnment/Dev'
+#           backendServiceArm: 'maneeshNewSPDEC25'
+#           backendAzureRmResourceGroupName: 'maneesh22'
+#           backendAzureRmStorageAccountName: 'maneeshstorage01'
+#           backendAzureRmContainerName: 'maneeshcontainer'
+#           backendAzureRmKey: 'maneesh.tfstate'
+
+#       - task: TerraformTask@5
+#         displayName: terraform apply
+#         inputs:
+#           provider: 'azurerm'
+#           command: 'apply'
+#           workingDirectory: '$(System.DefaultWorkingDirectory)/Envoirnment/Dev'
+#           environmentServiceNameAzureRM: 'maneeshNewSPDEC25'
+
+
            
 
 
