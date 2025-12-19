@@ -99,5 +99,5 @@ stages:
           command: 'plan'
           workingDirectory: '$(System.DefaultWorkingDirectory)/Environment/Dev'
           environmentServiceNameAzureRM: 'maneeshNewSPDEC25'
-        
+
   
