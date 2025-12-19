@@ -73,7 +73,8 @@ stages:
           inputs:
             version: 'v1.26.0'
             workingDirectory: '$(System.DefaultWorkingDirectory)'
-      
+
+ 
  #terraform init&plan
  
 - stage: stage3
