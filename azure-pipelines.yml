@@ -62,6 +62,7 @@ stages:
 
 - stage: stage2
   displayName: security_scanning
+  # dependsOn: stage1
   jobs:
     - job: terraform_scanning
       displayName: scanning
@@ -72,11 +73,31 @@ stages:
             version: 'v1.26.0'
             workingDirectory: '$(System.DefaultWorkingDirectory)'
       
-        - task: PowerShell@2
-          displayName: tflint_scanning
+
+- stage: stage3
+  displayName: terraform_plan
+  # dependsOn: stage2
+  jobs:
+    - job: terraform_plan
+      displayName: terraform_init_and_plan
+      steps:
+        - task: TerraformTask@5
+          displayName: terraform_init
           inputs:
-            targetType: 'inline'
+            provider: 'azurerm'
+            command: 'init'
             workingDirectory: '$(System.DefaultWorkingDirectory)/Environment/Dev'
-            script: |
-              tflint --init
-              tflint
+            backendServiceArm: 'maneeshNewSPDEC25'
+            backendAzureRmResourceGroupName: 'maneesh22'
+            backendAzureRmStorageAccountName: 'maneeshstorage01'
+            backendAzureRmContainerName: 'maneeshcontainer'
+            backendAzureRmKey: 'maneesh.tfstate'
+
+        - task: TerraformTask@5
+          displayName: terraform_plan
+          inputs:
+            provider: 'azurerm'
+            command: 'plan'
+            workingDirectory: '$(System.DefaultWorkingDirectory)/Environment/Dev'
+            environmentServiceNameAzureRM: 'maneeshNewSPDEC25'
+ 
