@@ -6,6 +6,7 @@ trigger:
 pool:
   name: Agent_Maneesh
 
+#  install_init_fmt_validate
 stages:
 - stage: stage1
   displayName: install_init_fmt_validate
@@ -81,10 +82,6 @@ stages:
     - job: terraform_plan
       displayName: terraform_init_and_plan
       steps:
-
-
-
-        #  Terraform init
         - task: TerraformTask@5
           displayName: terraform_init
           inputs:
@@ -96,12 +93,12 @@ stages:
             backendAzureRmStorageAccountName: 'maneeshstorage01'
             backendAzureRmContainerName: 'maneeshcontainer'
             backendAzureRmKey: 'maneesh.tfstate'
-
-        #  Terraform plan
-        # - task: TerraformTask@5
-        #   displayName: terraform_plan
-        #   inputs:
-        #     provider: 'azurerm'
-        #     command: 'plan'
-        #     workingDirectory: '$(System.DefaultWorkingDirectory)/Environment/Dev'
-        #     environmentServiceNameAzureRM: 'maneeshNewSPDEC25'
+      
+        - task: TerraformTask@5
+          inputs:
+            provider: 'azurerm'
+            command: 'plan'
+            workingDirectory: '$(System.DefaultWorkingDirectory)/Environment/Dev'
+            environmentServiceNameAzureRM: 'maneeshNewSPDEC25'
+        
+  
