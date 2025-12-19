@@ -6,7 +6,7 @@ trigger:
 pool:
   name: Agent_Maneesh
 
-# #  install_init_fmt_validate
+ #  install_init_fmt_validate
 stages:
 - stage: stage1
   displayName: install_init_fmt_validate
@@ -74,7 +74,8 @@ stages:
             version: 'v1.26.0'
             workingDirectory: '$(System.DefaultWorkingDirectory)'
       
-
+ #terraform init&plan
+ 
 - stage: stage3
   displayName: terraform_plan
   # dependsOn: stage2
