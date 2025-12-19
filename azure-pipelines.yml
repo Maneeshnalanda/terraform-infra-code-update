@@ -93,11 +93,25 @@ stages:
           backendAzureRmContainerName: 'maneeshcontainer'
           backendAzureRmKey: 'maneesh.tfstate'
       
-      - task: TerraformTask@5
-        inputs:
-          provider: 'azurerm'
-          command: 'plan'
-          workingDirectory: '$(System.DefaultWorkingDirectory)/Environment/Dev'
-          environmentServiceNameAzureRM: 'maneeshNewSPDEC25'
+      # - task: TerraformTask@5
+      #   inputs:
+      #     provider: 'azurerm'
+      #     command: 'plan'
+      #     workingDirectory: '$(System.DefaultWorkingDirectory)/Environment/Dev'
+      #     environmentServiceNameAzureRM: 'maneeshNewSPDEC25'
+
+- stage: stage4 
+  displayName: Manual validation
+  jobs:
+  - job: Manualvalidation
+    pool: server
+    steps:
+    - task: ManualValidation@1
+      inputs:
+        notifyUsers: 'maneeshku2022@gmail.com'
+        approvers: 'maneeshku2022@gmail.com'
+           
+
+
 
   
