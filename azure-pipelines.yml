@@ -4,7 +4,7 @@ trigger:
       - main
 
 pool:
-  name: maneesh3456
+  name: Agent_Maneesh
 
 stages:
 - stage: stage1
