@@ -28,7 +28,7 @@ stages:
         backendAzureRmResourceGroupName: 'maneesh22'
         backendAzureRmStorageAccountName: 'maneeshstorage01'
         backendAzureRmContainerName: 'maneeshcontainer'
-        backendAzureRmKey: 'maneesh.tfstate'
+        backendAzureRmKey: 'mk.tfstate'
 
   - job: terraformfmt_terrraformvalidate
     displayName: terraform fmt and validate
@@ -43,7 +43,7 @@ stages:
         backendAzureRmResourceGroupName: 'maneesh22'
         backendAzureRmStorageAccountName: 'maneeshstorage01'
         backendAzureRmContainerName: 'maneeshcontainer'
-        backendAzureRmKey: 'maneesh.tfstate'
+        backendAzureRmKey: 'mk.tfstate'
 
     - task: TerraformTask@5
       inputs:
@@ -99,7 +99,7 @@ stages:
           backendAzureRmResourceGroupName: 'maneesh22'
           backendAzureRmStorageAccountName: 'maneeshstorage01'
           backendAzureRmContainerName: 'maneeshcontainer'
-          backendAzureRmKey: 'maneesh.tfstate'
+          backendAzureRmKey: 'mk.tfstate'
       
       - task: TerraformTask@5
         inputs:
