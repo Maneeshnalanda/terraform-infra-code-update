@@ -73,45 +73,51 @@ stages:
           inputs:
             version: 'v1.26.0'
             workingDirectory: '$(System.DefaultWorkingDirectory)'
-
+        - task: PowerShell@2
+          inputs:
+            targetType: 'inline'
+            script: |
+              tflint --init
+              tflint
+            workingDirectory: '$(System.DefaultWorkingDirectory)'
  
  #terraform init&plan
  
-- stage: stage3
-  displayName: terraform_plan
-  # dependsOn: stage2
-  jobs:
-    - job: terraform_plan
-      displayName: terraform_init_and_plan
-      steps:
-      - task: TerraformTask@5
-        inputs:
-          provider: 'azurerm'
-          command: 'init'
-          workingDirectory: '$(System.DefaultWorkingDirectory)/Envoirnment/Dev'
-          backendServiceArm: 'maneeshNewSPDEC25'
-          backendAzureRmResourceGroupName: 'maneesh22'
-          backendAzureRmStorageAccountName: 'maneeshstorage01'
-          backendAzureRmContainerName: 'maneeshcontainer'
-          backendAzureRmKey: 'maneesh.tfstate'
-      
-      - task: TerraformTask@5
-        inputs:
-          provider: 'azurerm'
-          command: 'plan'
-          workingDirectory: '$(System.DefaultWorkingDirectory)/Envoirnment/Dev'
-          environmentServiceNameAzureRM: 'maneeshNewSPDEC25'
-
-# - stage: stage4 
-#   displayName: Manual validation
+# - stage: stage3
+#   displayName: terraform_plan
+#   # dependsOn: stage2
 #   jobs:
-#   - job: Manualvalidation
-#     pool: server
-#     steps:
-#     - task: ManualValidation@1
-#       inputs:
-#         notifyUsers: 'maneeshku2022@gmail.com'
-#         approvers: 'maneeshku2022@gmail.com'
+#     - job: terraform_plan
+#       displayName: terraform_init_and_plan
+#       steps:
+#       - task: TerraformTask@5
+#         inputs:
+#           provider: 'azurerm'
+#           command: 'init'
+#           workingDirectory: '$(System.DefaultWorkingDirectory)/Envoirnment/Dev'
+#           backendServiceArm: 'maneeshNewSPDEC25'
+#           backendAzureRmResourceGroupName: 'maneesh22'
+#           backendAzureRmStorageAccountName: 'maneeshstorage01'
+#           backendAzureRmContainerName: 'maneeshcontainer'
+#           backendAzureRmKey: 'maneesh.tfstate'
+      
+#       - task: TerraformTask@5
+#         inputs:
+#           provider: 'azurerm'
+#           command: 'plan'
+#           workingDirectory: '$(System.DefaultWorkingDirectory)/Envoirnment/Dev'
+#           environmentServiceNameAzureRM: 'maneeshNewSPDEC25'
+
+# # - stage: stage4 
+# #   displayName: Manual validation
+# #   jobs:
+# #   - job: Manualvalidation
+# #     pool: server
+# #     steps:
+# #     - task: ManualValidation@1
+# #       inputs:
+# #         notifyUsers: 'maneeshku2022@gmail.com'
+# #         approvers: 'maneeshku2022@gmail.com'
            
 
 
