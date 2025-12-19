@@ -84,7 +84,7 @@ stages:
 
 
 
-        # ✅ Terraform init
+        #  Terraform init
         - task: TerraformTask@5
           displayName: terraform_init
           inputs:
@@ -97,11 +97,11 @@ stages:
             backendAzureRmContainerName: 'maneeshcontainer'
             backendAzureRmKey: 'maneesh.tfstate'
 
-        # ✅ Terraform plan
-        - task: TerraformTask@5
-          displayName: terraform_plan
-          inputs:
-            provider: 'azurerm'
-            command: 'plan'
-            workingDirectory: '$(System.DefaultWorkingDirectory)/Environment/Dev'
-            environmentServiceNameAzureRM: 'maneeshNewSPDEC25'
+        #  Terraform plan
+        # - task: TerraformTask@5
+        #   displayName: terraform_plan
+        #   inputs:
+        #     provider: 'azurerm'
+        #     command: 'plan'
+        #     workingDirectory: '$(System.DefaultWorkingDirectory)/Environment/Dev'
+        #     environmentServiceNameAzureRM: 'maneeshNewSPDEC25'
