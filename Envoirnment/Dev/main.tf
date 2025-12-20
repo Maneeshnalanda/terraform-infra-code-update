@@ -42,21 +42,23 @@ module "nic" {
 }
 
 module "vm" {
-  depends_on = [module.rg, module.nic, module.vnet, module.kv]
+  depends_on = [module.rg, module.nic, module.vnet]
+  # depends_on = [module.rg, module.nic, module.vnet, module.kv]
   source     = "../../Module/azurerm_vm"
   vm         = var.vm
 
 }
 
-module "kv" {
-  depends_on = [module.rg]
-  source     = "../../Module/azurerm_key_vault"
-  keyvault   = var.keyvault
+# module "kv" {
+#   depends_on = [module.rg]
+#   source     = "../../Module/azurerm_key_vault"
+#   keyvault   = var.keyvault
 
-}
+# }
 
 module "sqlserver" {
-  depends_on = [ module.kv, module.rg ]
+  depends_on = [ module.rg ]
+  # depends_on = [ module.kv, module.rg ]
   source = "../../Module/azurerm_sql_server"
   sql_servers = var.sql_servers
   
