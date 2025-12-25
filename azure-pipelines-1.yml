@@ -82,30 +82,30 @@ stages:
  
 # #  terraform plan
  
-# - stage: stage3
-#   displayName: terraform_plan
-#   # dependsOn: stage2
-#   jobs:
-#     - job: terraform_plan
-#       displayName: terraform_init_and_plan
-#       steps:
-#       - task: TerraformTask@5
-#         inputs:
-#           provider: 'azurerm'
-#           command: 'init'
-#           workingDirectory: '$(System.DefaultWorkingDirectory)/Enviroments/Dev'
-#           backendServiceArm: 'maneeshNewSPDEC25'
-#           backendAzureRmResourceGroupName: 'maneesh22'
-#           backendAzureRmStorageAccountName: 'maneeshstorage01'
-#           backendAzureRmContainerName: 'maneeshcontainer'
-#           backendAzureRmKey: 'mk.tfstate'
+- stage: stage3
+  displayName: terraform_plan
+  # dependsOn: stage2
+  jobs:
+    - job: terraform_plan
+      displayName: terraform_init_and_plan
+      steps:
+      - task: TerraformTask@5
+        inputs:
+          provider: 'azurerm'
+          command: 'init'
+          workingDirectory: '$(System.DefaultWorkingDirectory)/Enviroments/Dev'
+          backendServiceArm: 'maneeshNewSPDEC25'
+          backendAzureRmResourceGroupName: 'maneesh22'
+          backendAzureRmStorageAccountName: 'maneeshstorage01'
+          backendAzureRmContainerName: 'maneeshcontainer'
+          backendAzureRmKey: 'mk.tfstate'
       
-#       - task: TerraformTask@5
-#         inputs:
-#           provider: 'azurerm'
-#           command: 'plan'
-#           workingDirectory: '$(System.DefaultWorkingDirectory)/Enviroments/Dev'
-#           environmentServiceNameAzureRM: 'maneeshNewSPDEC25'
+      - task: TerraformTask@5
+        inputs:
+          provider: 'azurerm'
+          command: 'plan'
+          workingDirectory: '$(System.DefaultWorkingDirectory)/Enviroments/Dev'
+          environmentServiceNameAzureRM: 'maneeshNewSPDEC25'
 
 # - stage: stage4 
 #   displayName: Manual validation
