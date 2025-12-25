@@ -6,10 +6,7 @@ terraform {
     }
   }
   backend "azurerm" {
-    resource_group_name  = "maneesh22"
-    storage_account_name = "maneeshstorage01"
-    container_name       = "maneeshcontainer"
-    key                  = "mk.tfstate"
+   
 
   }
 }
