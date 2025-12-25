@@ -18,16 +18,16 @@ stages:
       inputs:
         terraformVersion: 'latest'
 
-#     - task: TerraformTask@5
-#       inputs:
-#         provider: 'azurerm'
-#         command: 'init'
-#         workingDirectory: '$(System.DefaultWorkingDirectory)/Envoirnment/Dev'
-#         backendServiceArm: 'maneeshNewSPDEC25'
-#         backendAzureRmResourceGroupName: 'maneesh22'
-#         backendAzureRmStorageAccountName: 'maneeshstorage01'
-#         backendAzureRmContainerName: 'maneeshcontainer'
-#         backendAzureRmKey: 'mk.tfstate'
+    - task: TerraformTask@5
+      inputs:
+        provider: 'azurerm'
+        command: 'init'
+        workingDirectory: '$(System.DefaultWorkingDirectory)/Envoirnment/Dev'
+        backendServiceArm: 'maneeshNewSPDEC25'
+        backendAzureRmResourceGroupName: 'maneesh22'
+        backendAzureRmStorageAccountName: 'maneeshstorage01'
+        backendAzureRmContainerName: 'maneeshcontainer'
+        backendAzureRmKey: 'mk.tfstate'
 
 #   - job: terraformfmt_terrraformvalidate
 #     displayName: terraform fmt and validate
