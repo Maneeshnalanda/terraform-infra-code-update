@@ -22,7 +22,7 @@ stages:
       inputs:
         provider: 'azurerm'
         command: 'init'
-        workingDirectory: '$(System.DefaultWorkingDirectory)/Envoirnment/Dev'
+        workingDirectory: '$(System.DefaultWorkingDirectory)/Enviroments/Dev'
         backendServiceArm: 'maneeshNewSPDEC25'
         backendAzureRmResourceGroupName: 'maneesh22'
         backendAzureRmStorageAccountName: 'maneeshstorage01'
