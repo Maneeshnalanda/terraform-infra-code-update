@@ -29,56 +29,56 @@ stages:
         backendAzureRmContainerName: 'maneeshcontainer'
         backendAzureRmKey: 'mk.tfstate'
 
-#   - job: terraformfmt_terrraformvalidate
-#     displayName: terraform fmt and validate
-#     dependsOn: terraform_install_init
-#     steps:
-#     - task: TerraformTask@5
-#       inputs:
-#         provider: 'azurerm'
-#         command: 'init'
-#         workingDirectory: '$(System.DefaultWorkingDirectory)/Envoirnment/Dev'
-#         backendServiceArm: 'maneeshNewSPDEC25'
-#         backendAzureRmResourceGroupName: 'maneesh22'
-#         backendAzureRmStorageAccountName: 'maneeshstorage01'
-#         backendAzureRmContainerName: 'maneeshcontainer'
-#         backendAzureRmKey: 'mk.tfstate'
+  - job: terraformfmt_terrraformvalidate
+    displayName: terraform fmt and validate
+    dependsOn: terraform_install_init
+    steps:
+    - task: TerraformTask@5
+      inputs:
+        provider: 'azurerm'
+        command: 'init'
+        workingDirectory: '$(System.DefaultWorkingDirectory)/Enviroments/Dev'
+        backendServiceArm: 'maneeshNewSPDEC25'
+        backendAzureRmResourceGroupName: 'maneesh22'
+        backendAzureRmStorageAccountName: 'maneeshstorage01'
+        backendAzureRmContainerName: 'maneeshcontainer'
+        backendAzureRmKey: 'mk.tfstate'
 
-#     - task: TerraformTask@5
-#       inputs:
-#         provider: 'azurerm'
-#         command: 'custom'
-#         commandOptions: 'fmt'
-#         outputTo: 'console'
-#         environmentServiceNameAzureRM: 'maneeshNewSPDEC25'
+    - task: TerraformTask@5
+      inputs:
+        provider: 'azurerm'
+        command: 'custom'
+        commandOptions: 'fmt'
+        outputTo: 'console'
+        environmentServiceNameAzureRM: 'maneeshNewSPDEC25'
 
-#     - task: TerraformTask@5
-#       inputs:
-#         provider: 'azurerm'
-#         command: 'validate'
-#         workingDirectory: '$(System.DefaultWorkingDirectory)/Envoirnment/Dev'
+    - task: TerraformTask@5
+      inputs:
+        provider: 'azurerm'
+        command: 'validate'
+        workingDirectory: '$(System.DefaultWorkingDirectory)/Enviroments/Dev'
 
-# # scanning
+# scanning
 
-# - stage: stage2
-#   displayName: security_scanning
-#   # dependsOn: stage1
-#   jobs:
-#     - job: terraform_scanning
-#       displayName: scanning
-#       steps:
-#         - task: tfsec@1
-#           displayName: tfsec_scanning
-#           inputs:
-#             version: 'v1.26.0'
-#             workingDirectory: '$(System.DefaultWorkingDirectory)'
-#         - task: PowerShell@2
-#           inputs:
-#             targetType: 'inline'
-#             script: |
-#               tflint --init
-#               tflint
-#             workingDirectory: '$(System.DefaultWorkingDirectory)'
+- stage: stage2
+  displayName: security_scanning
+  # dependsOn: stage1
+  jobs:
+    - job: terraform_scanning
+      displayName: scanning
+      steps:
+        - task: tfsec@1
+          displayName: tfsec_scanning
+          inputs:
+            version: 'v1.26.0'
+            workingDirectory: '$(System.DefaultWorkingDirectory)'
+        - task: PowerShell@2
+          inputs:
+            targetType: 'inline'
+            script: |
+              tflint --init
+              tflint
+            workingDirectory: '$(System.DefaultWorkingDirectory)'
  
 # #  terraform plan
  
@@ -93,7 +93,7 @@ stages:
 #         inputs:
 #           provider: 'azurerm'
 #           command: 'init'
-#           workingDirectory: '$(System.DefaultWorkingDirectory)/Envoirnment/Dev'
+#           workingDirectory: '$(System.DefaultWorkingDirectory)/Enviroments/Dev'
 #           backendServiceArm: 'maneeshNewSPDEC25'
 #           backendAzureRmResourceGroupName: 'maneesh22'
 #           backendAzureRmStorageAccountName: 'maneeshstorage01'
@@ -104,7 +104,7 @@ stages:
 #         inputs:
 #           provider: 'azurerm'
 #           command: 'plan'
-#           workingDirectory: '$(System.DefaultWorkingDirectory)/Envoirnment/Dev'
+#           workingDirectory: '$(System.DefaultWorkingDirectory)/Enviroments/Dev'
 #           environmentServiceNameAzureRM: 'maneeshNewSPDEC25'
 
 # - stage: stage4 
@@ -131,7 +131,7 @@ stages:
 #         inputs:
 #           provider: 'azurerm'
 #           command: 'init'
-#           workingDirectory: '$(System.DefaultWorkingDirectory)/Envoirnment/Dev'
+#           workingDirectory: '$(System.DefaultWorkingDirectory)/Enviroments/Dev'
 #           backendServiceArm: 'maneeshNewSPDEC25'
 #           backendAzureRmResourceGroupName: 'maneesh22'
 #           backendAzureRmStorageAccountName: 'maneeshstorage01'
@@ -143,7 +143,7 @@ stages:
 #         inputs:
 #           provider: 'azurerm'
 #           command: 'apply'
-#           workingDirectory: '$(System.DefaultWorkingDirectory)/Envoirnment/Dev'
+#           workingDirectory: '$(System.DefaultWorkingDirectory)/Enviroments/Dev'
 #           environmentServiceNameAzureRM: 'maneeshNewSPDEC25'
 
 
