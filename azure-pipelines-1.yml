@@ -120,31 +120,31 @@ stages:
 
 #  terraform Apply
 
-# - stage: state5
-#   displayName: terraformApply
-#   jobs:
-#     - job: terraform_Apply
-#       displayName: terraformApply
-#       steps:
-#       - task: TerraformTask@5
-#         displayName: terraform init
-#         inputs:
-#           provider: 'azurerm'
-#           command: 'init'
-#           workingDirectory: '$(System.DefaultWorkingDirectory)/Enviroments/Dev'
-#           backendServiceArm: 'maneeshNewSPDEC25'
-#           backendAzureRmResourceGroupName: 'maneesh22'
-#           backendAzureRmStorageAccountName: 'maneeshstorage01'
-#           backendAzureRmContainerName: 'maneeshcontainer'
-#           backendAzureRmKey: 'maneesh.tfstate'
+- stage: state5
+  displayName: terraformApply
+  jobs:
+    - job: terraform_Apply
+      displayName: terraformApply
+      steps:
+      - task: TerraformTask@5
+        displayName: terraform init
+        inputs:
+          provider: 'azurerm'
+          command: 'init'
+          workingDirectory: '$(System.DefaultWorkingDirectory)/Enviroments/Dev'
+          backendServiceArm: 'maneeshNewSPDEC25'
+          backendAzureRmResourceGroupName: 'maneesh22'
+          backendAzureRmStorageAccountName: 'maneeshstorage01'
+          backendAzureRmContainerName: 'maneeshcontainer'
+          backendAzureRmKey: 'maneesh.tfstate'
 
-#       - task: TerraformTask@5
-#         displayName: terraform apply
-#         inputs:
-#           provider: 'azurerm'
-#           command: 'apply'
-#           workingDirectory: '$(System.DefaultWorkingDirectory)/Enviroments/Dev'
-#           environmentServiceNameAzureRM: 'maneeshNewSPDEC25'
+      - task: TerraformTask@5
+        displayName: terraform apply
+        inputs:
+          provider: 'azurerm'
+          command: 'apply'
+          workingDirectory: '$(System.DefaultWorkingDirectory)/Enviroments/Dev'
+          environmentServiceNameAzureRM: 'maneeshNewSPDEC25'
 
 
            
