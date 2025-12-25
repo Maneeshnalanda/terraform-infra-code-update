@@ -31,14 +31,14 @@ vnet_name = {
 
 subnets = {
   subnet1 = {
-    subnet_name          = "maneesh -subnet1"
+    subnet_name          = "maneesh-subnet1"
     resource_group_name  = "maneesh202"
     virtual_network_name = "maneesh-vnet"
     address_prefixes     = ["10.0.1.0/24"]
   }
 
   subnet2 = {
-    subnet_name          = "maneesh -subnet2"
+    subnet_name          = "maneesh-subnet2"
     resource_group_name  = "maneesh202"
     virtual_network_name = "maneesh-vnet"
     address_prefixes     = ["10.0.2.0/24"]
@@ -125,7 +125,7 @@ nics = {
     location             = "westus"
     resource_group_name  = "maneesh202"
     virtual_network_name = "maneesh-vnet"
-    subnet_name          = "maneesh -subnet1"
+    subnet_name          = "maneesh-subnet1"
     ip_configuration = {
       ipconfig1 = {
         name                          = "ipconfig1"
@@ -155,7 +155,7 @@ subnet_nsg_nic_assoc = {
   sub_nsg_assoc1 = {
     nsg_name             = "devnsg01"
     virtual_network_name = "maneesh-vnet"
-    subnet_name          = "maneesh -subnet1"
+    subnet_name          = "maneesh-subnet1"
     resource_group_name  = "maneesh202"
     nic_name             = "dev-nic-01"
   }
@@ -163,7 +163,7 @@ subnet_nsg_nic_assoc = {
   sub_nsg_assoc2 = {
     nsg_name             = "devnsg02"
     virtual_network_name = "maneesh-vnet"
-    subnet_name          = "maneesh -subnet2"
+    subnet_name          = "maneesh-subnet2"
     resource_group_name  = "maneesh202"
     nic_name             = "dev-nic-02"
   }
