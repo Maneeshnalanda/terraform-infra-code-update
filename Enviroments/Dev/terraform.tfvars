@@ -204,7 +204,7 @@ bastion_hosts = {
 
 key_vaults = {
   kv1 = {
-    key_vault_name              = "maneeshkv03"
+    key_vault_name              = "maneeshkv04"
     location                    = "westus"
     resource_group_name         = "maneesh202"
     enabled_for_disk_encryption = true
@@ -224,28 +224,28 @@ key_vault_secrets = {
   vm_users = {
     secret_name         = "vm-username"
     secret_value        = "adminuser"
-    key_vault_name      = "maneeshkv03"
+    key_vault_name      = "maneeshkv04"
     resource_group_name = "maneesh202"
   }
 
   vm_pass = {
     secret_name         = "vm-password"
     secret_value        = "Mane@#123456"
-    key_vault_name      = "maneeshkv03"
+    key_vault_name      = "maneeshkv04"
     resource_group_name = "maneesh202"
   }
 
   sql_user = {
     secret_name         = "db-username"
     secret_value        = "dbuser"
-    key_vault_name      = "maneeshkv03"
+    key_vault_name      = "maneeshkv04"
     resource_group_name = "maneesh202"
   }
 
   sql_pass = {
     secret_name         = "db-password"
     secret_value        = "Mane@#123456"
-    key_vault_name      = "maneeshkv03"
+    key_vault_name      = "maneeshkv04"
     resource_group_name = "maneesh202"
   }
 
@@ -258,9 +258,9 @@ vms = {
     vm_name                         = "frontend-vm-01"
     location                        = "westus"
     resource_group_name             = "maneesh202"
-    size                            = "Standard_B2s"
+    size                            = "Standard_D2s_v3"
     nic_name                        = "dev-nic-01"
-    key_vault_name                  = "maneeshkv03"
+    key_vault_name                  = "maneeshkv04"
     secret_name                     = "vm-username"
     secret_password                 = "vm-password"
     disable_password_authentication = false
@@ -282,9 +282,9 @@ vms = {
     vm_name                         = "backend-vm-01"
     location                        = "westus"
     resource_group_name             = "maneesh202"
-    size                            = "Standard_B2s"
+    size                            = "Standard_D2s_v3"
     nic_name                        = "dev-nic-02"
-    key_vault_name                  = "maneeshkv03"
+    key_vault_name                  = "maneeshkv04"
     secret_name                     = "vm-username"
     secret_password                 = "vm-password"
     disable_password_authentication = false
@@ -316,13 +316,13 @@ storage_accounts = {
 
 sql_servers = {
   "server1" = {
-    name                          = "devnewsqlserver99"
+    name                          = "devnewsqlserver101"
     resource_group_name           = "maneesh202"
     location                      = "westus"
     version                       = "12.0"
     secret_name                   = "db-username"
     secret_password               = "db-password"
-    key_vault_name                = "maneeshkv03"
+    key_vault_name                = "maneeshkv04"
     connection_policy             = "Default"
     minimum_tls_version           = "1.2"
     public_network_access_enabled = true
@@ -333,7 +333,7 @@ sql_servers = {
 sql_databases = {
   "db1" = {
     db_name             = "devdb-01"
-    sql_server_name     = "devnewsqlserver99"
+    sql_server_name     = "devnewsqlserver101"
     resource_group_name = "maneesh202"
     sku_name            = "GP_Gen5_2"
     max_size_gb         = 5
