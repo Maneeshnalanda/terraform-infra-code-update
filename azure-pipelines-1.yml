@@ -25,7 +25,7 @@ stages:
         workingDirectory: '$(System.DefaultWorkingDirectory)/Enviroments/Dev'
         backendServiceArm: 'maneeshNewSPDEC25'
         backendAzureRmResourceGroupName: 'maneesh22'
-        backendAzureRmStorageAccountName: 'maneeshstorage01'
+        backendAzureRmStorageAccountName: 'maneeshcontainer02'
         backendAzureRmContainerName: 'maneeshcontainer'
         backendAzureRmKey: 'mk.tfstate'
 
@@ -40,7 +40,7 @@ stages:
         workingDirectory: '$(System.DefaultWorkingDirectory)/Enviroments/Dev'
         backendServiceArm: 'maneeshNewSPDEC25'
         backendAzureRmResourceGroupName: 'maneesh22'
-        backendAzureRmStorageAccountName: 'maneeshstorage01'
+        backendAzureRmStorageAccountName: 'maneeshcontainer02'
         backendAzureRmContainerName: 'maneeshcontainer'
         backendAzureRmKey: 'mk.tfstate'
 
@@ -96,7 +96,7 @@ stages:
           workingDirectory: '$(System.DefaultWorkingDirectory)/Enviroments/Dev'
           backendServiceArm: 'maneeshNewSPDEC25'
           backendAzureRmResourceGroupName: 'maneesh22'
-          backendAzureRmStorageAccountName: 'maneeshstorage01'
+          backendAzureRmStorageAccountName: 'maneeshcontainer02'
           backendAzureRmContainerName: 'maneeshcontainer'
           backendAzureRmKey: 'mk.tfstate'
       
@@ -134,7 +134,7 @@ stages:
           workingDirectory: '$(System.DefaultWorkingDirectory)/Enviroments/Dev'
           backendServiceArm: 'maneeshNewSPDEC25'
           backendAzureRmResourceGroupName: 'maneesh22'
-          backendAzureRmStorageAccountName: 'maneeshstorage01'
+          backendAzureRmStorageAccountName: 'maneeshcontainer02'
           backendAzureRmContainerName: 'maneeshcontainer'
           backendAzureRmKey: 'maneesh.tfstate'
 
